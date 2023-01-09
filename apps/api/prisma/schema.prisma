@@ -10,4 +10,41 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Client {
+  id             Int    @id @default(autoincrement())
+  name           String
+  login          String @unique
+  email          String @unique
+  password       String
+  profilePicture String
+  address        String
+  phone          String
 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Order     Order[]
+
+  @@map("clients")
+}
+
+model Order {
+  id Int @id @default(autoincrement())
+
+  products       Product[]
+  total_products Int
+  total_price    Decimal
+
+  client    Client   @relation(fields: [clientId], references: [id])
+  clientId  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("orders")
+}
+
+model Product {
+  id       Int    @id @default(autoincrement())
+  quantity Int
+  Order    Order? @relation(fields: [orderId], references: [id])
+  orderId  Int?
+}
