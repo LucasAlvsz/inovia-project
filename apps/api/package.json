@@ -1,0 +1,39 @@
+{
+	"name": "api",
+	"version": "1.0.0",
+	"author": "Lucas Alves <contato.lucasalv@gmai.com>",
+	"license": "MIT",
+	"scripts": {
+		"build": "babel src --extensions '.js,.ts' --out-dir build --no-copy-ignored",
+		"start": "node build/server.js",
+		"dev": "tsnd --transpile-only --respawn --ignore-watch node_modules --exit-child --cls --rs -r dotenv/config -r tsconfig-paths/register src/server.ts"
+	},
+	"dependencies": {
+		"@prisma/client": "^4.8.1",
+		"bcrypt": "^5.1.0",
+		"cors": "^2.8.5",
+		"express": "^4.18.2",
+		"express-async-errors": "^3.1.1",
+		"joi": "^17.7.0",
+		"jsonwebtoken": "^9.0.0"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.20.7",
+		"@babel/core": "^7.20.12",
+		"@babel/node": "^7.20.7",
+		"@babel/preset-env": "^7.20.2",
+		"@babel/preset-typescript": "^7.18.6",
+		"@types/bcrypt": "^5.0.0",
+		"@types/cors": "^2.8.13",
+		"@types/express": "^4.17.15",
+		"@types/jsonwebtoken": "^9.0.0",
+		"@types/node": "^18.11.18",
+		"babel-plugin-module-resolver": "^4.1.0",
+		"dotenv": "^16.0.3",
+		"prisma": "^4.8.1",
+		"ts-node": "^10.9.1",
+		"ts-node-dev": "^2.0.0",
+		"tsconfig-paths": "^4.1.2",
+		"typescript": "^4.9.4"
+	}
+}
