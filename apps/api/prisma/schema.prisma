@@ -11,11 +11,12 @@ datasource db {
 }
 
 model Client {
-  id             Int    @id @default(autoincrement())
+  id             Int      @id @default(autoincrement())
   name           String
-  login          String @unique
-  email          String @unique
+  login          String   @unique
+  email          String   @unique
   password       String
+  birthDate      DateTime
   profilePicture String
   address        String
   phone          String
@@ -30,9 +31,9 @@ model Client {
 model Order {
   id Int @id @default(autoincrement())
 
-  products       Product[]
-  total_products Int
-  total_price    Decimal
+  products      Product[]
+  totalProducts Int
+  totalPrice    Decimal
 
   client    Client   @relation(fields: [clientId], references: [id])
   clientId  Int
