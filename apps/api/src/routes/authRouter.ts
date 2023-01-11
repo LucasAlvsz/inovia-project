@@ -1,16 +1,16 @@
 import { Router } from "express"
 
-import authController from "@/controllers/authController"
-import { validateSchema, handleFiles } from "@/middlewares"
-import signUpSchema from "@/schemas/authSchemas/signUp"
 import { multerUtils } from "@/utils"
+import { authSchemas } from "@/schemas"
+import { authController } from "@/controllers"
+import { validateSchema, handleFiles } from "@/middlewares"
 
 const authRouter = Router()
 
 authRouter.post(
 	"/sign-up",
 	handleFiles(multerUtils.profilePicOptions, "profilePic"),
-	validateSchema(signUpSchema),
+	validateSchema(authSchemas.signUpSchema),
 	authController.signUp
 )
 
