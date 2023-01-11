@@ -16,6 +16,7 @@
 			"@routes/*": ["routes/*"],
 			"@schemas/*": ["schemas/*"],
 			"@services/*": ["services/*"],
+			"@factories/*": ["factories/*"],
 			"@controllers/*": ["controllers/*"],
 			"@middlewares/*": ["middlewares/*"],
 			"@repositories/*": ["repositories/*"]

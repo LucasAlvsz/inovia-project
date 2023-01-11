@@ -24,4 +24,4 @@ const profilePicOptions = {
 	},
 }
 
-export { profilePicOptions }
+export default { profilePicOptions }
