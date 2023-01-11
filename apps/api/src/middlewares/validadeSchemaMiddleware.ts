@@ -1,6 +1,7 @@
-import { UnprocessableEntityError } from "@/errors"
-import { Request, Response, NextFunction } from "express"
 import { ObjectSchema } from "joi"
+import { Request, Response, NextFunction } from "express"
+
+import { UnprocessableEntityError } from "@/errors"
 
 const validateSchema = (schema: ObjectSchema) => {
 	return (req: Request, res: Response, next: NextFunction) => {

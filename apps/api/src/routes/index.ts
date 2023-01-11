@@ -1,7 +1,8 @@
 import "express-async-errors"
 import { Router } from "express"
-import { handleError } from "@/middlewares"
+
 import authRouter from "./authRouter"
+import { handleError } from "@/middlewares"
 
 const router = Router()
 

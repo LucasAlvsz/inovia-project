@@ -1,5 +1,6 @@
-import { Request, Response, NextFunction } from "express"
 import { MulterError } from "multer"
+import { Request, Response, NextFunction } from "express"
+
 import { AppError } from "@/errors"
 
 const handleError = (
