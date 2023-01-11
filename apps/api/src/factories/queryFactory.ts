@@ -1,6 +1,6 @@
 import { Prisma } from "@prisma/client"
 
-import prisma from "@/config"
+import { prisma } from "@/config"
 
 const findFirst = async (
 	where: Prisma.UserWhereInput,

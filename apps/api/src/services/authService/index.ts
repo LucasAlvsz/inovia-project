@@ -40,9 +40,11 @@ const login = async (user: UserData) => {
 	)
 	if (!validatePassword) throw new UnauthorizedError("Invalid password")
 
-	const { id, name } = userAlreadyExists
+	const { id, name, profilePictureKey } = userAlreadyExists
+	const profilePicUrl = `${process.env.BASE_URL}/files/${profilePictureKey}`
 	return {
 		token: jwtUtils.generateToken({ id, name }, TOKEN_EXPIRATION),
+		userData: { name, profilePicUrl },
 	}
 }
 
