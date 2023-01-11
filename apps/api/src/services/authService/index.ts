@@ -8,19 +8,16 @@ import { cryptographyUtils, jwtUtils } from "@/utils"
 import { ConflictError, NotFoundError, UnauthorizedError } from "@/errors"
 
 const validateUser = async (
-	getBy: Prisma.UserWhereUniqueInput
+	where: Prisma.UserWhereInput
 ): Promise<User | null> => {
-	const user = await queryFactory.getByUnique(getBy, "User")
+	const user = await queryFactory.findFirst(where, "User")
 	if (!user) return null
 	return user
 }
 
 const register = async (user: UserData) => {
 	const userAlreadyExists = await validateUser({
-		login_email: {
-			login: user.login,
-			email: user.email,
-		},
+		OR: [{ login: user.login }, { email: user.email }],
 	})
 	if (userAlreadyExists) throw new ConflictError("user already exists")
 

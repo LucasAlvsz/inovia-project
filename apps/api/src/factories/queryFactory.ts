@@ -2,13 +2,14 @@ import { Prisma } from "@prisma/client"
 
 import prisma from "@/config"
 
-const getByUnique = async (
-	where: Prisma.UserWhereUniqueInput,
+const findFirst = async (
+	where: Prisma.UserWhereInput,
 	model: Prisma.ModelName
 ) => {
-	return prisma[model].findUnique({
+	return prisma[model].findFirst({
 		where: where,
+		take: 1,
 	})
 }
 
-export default { getByUnique }
+export default { findFirst }
