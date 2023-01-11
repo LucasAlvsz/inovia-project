@@ -28,4 +28,16 @@ class ConflictError extends AppError {
 	}
 }
 
-export { AppError, UnprocessableEntityError, NotFoundError, ConflictError }
+class UnauthorizedError extends AppError {
+	constructor(message: string) {
+		super("Unauthorized Error", 401, message)
+	}
+}
+
+export {
+	AppError,
+	UnprocessableEntityError,
+	NotFoundError,
+	ConflictError,
+	UnauthorizedError,
+}

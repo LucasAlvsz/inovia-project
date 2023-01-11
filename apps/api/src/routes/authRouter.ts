@@ -7,11 +7,17 @@ import { validateSchema, handleFiles } from "@/middlewares"
 
 const authRouter = Router()
 
-authRouter.post(
-	"/sign-up",
-	handleFiles(multerUtils.profilePicOptions, "profilePic"),
-	validateSchema(authSchemas.signUpSchema),
-	authController.signUp
-)
+authRouter
+	.post(
+		"/sign-up",
+		handleFiles(multerUtils.profilePicOptions, "profilePic"),
+		validateSchema(authSchemas.signUpSchema),
+		authController.signUp
+	)
+	.post(
+		"/sign-in",
+		validateSchema(authSchemas.signInSchema),
+		authController.signIn
+	)
 
 export default authRouter
