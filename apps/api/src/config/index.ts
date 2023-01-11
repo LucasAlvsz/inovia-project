@@ -1,5 +1,4 @@
-import { PrismaClient } from "@prisma/client"
+import prisma from "./prisma"
+import multerConfig from "./multer"
 
-const prisma = new PrismaClient()
-
-export default prisma
+export { prisma, multerConfig }

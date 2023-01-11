@@ -1,4 +1,4 @@
-import prisma from "@/config"
+import { prisma } from "@/config"
 import { UserData } from "@/types/userTypes"
 
 const create = async (user: UserData) => {
