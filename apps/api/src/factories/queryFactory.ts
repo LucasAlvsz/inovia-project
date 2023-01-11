@@ -1,8 +1,9 @@
-import prisma from "@/config"
 import { Prisma } from "@prisma/client"
 
+import prisma from "@/config"
+
 const getByUnique = async (
-	where: Prisma.ClientWhereUniqueInput,
+	where: Prisma.UserWhereUniqueInput,
 	model: Prisma.ModelName
 ) => {
 	return prisma[model].findUnique({

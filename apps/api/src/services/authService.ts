@@ -1,34 +1,37 @@
-import { queryFactory } from "@/factories"
-import { clientRepository } from "@/respositories"
-import { ClientData } from "@/types/clientTypes"
-import { ConflictError } from "@/errors"
 import { Prisma } from "@prisma/client"
-import { cryptographyUtils } from "@/utils"
 
-const registerClient = async (client: ClientData) => {
+import { ConflictError } from "@/errors"
+import { queryFactory } from "@/factories"
+import { cryptographyUtils } from "@/utils"
+import { UserData } from "@/types/userTypes"
+import { userRepository } from "@/respositories"
+
+const validateUser = async (getBy: Prisma.UserWhereUniqueInput) => {
+	const user = await queryFactory.getByUnique(getBy, "User")
+	if (!user) return null
+	return user
+}
+
+const register = async (user: UserData) => {
 	if (
-		await validateClient({
-			login_email: { login: client.login, email: client.email },
+		await validateUser({
+			login_email: { login: user.login, email: user.email },
 		})
 	)
-		throw new ConflictError("Client already exists")
+		throw new ConflictError("user already exists")
 
-	const clientData = {
-		...client,
-		birthDate: new Date(client.birthDate),
-		password: cryptographyUtils.encryptWithSalt(client.password),
+	const UserData = {
+		...user,
+		birthDate: new Date(user.birthDate),
+		password: cryptographyUtils.encryptWithSalt(user.password),
 	}
 
-	await clientRepository.create(clientData)
+	await userRepository.create(UserData)
 }
 
-const validateClient = async (getBy: Prisma.ClientWhereUniqueInput) => {
-	const client = await queryFactory.getByUnique(getBy, "Client")
-	if (!client) return null
-	return client
-}
+const login = async (user: UserData) => {}
 
 export default {
-	registerClient,
-	validateClient,
+	register,
+	validateUser,
 }

@@ -1,3 +1,3 @@
-import clientRepository from "./clientRepository"
+import userRepository from "./userRepository"
 
-export { clientRepository }
+export { userRepository }

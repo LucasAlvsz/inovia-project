@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Client {
+model User {
   id             Int      @id @default(autoincrement())
   name           String
   login          String
@@ -26,7 +26,7 @@ model Client {
   Order     Order[]
 
   @@unique([login, email])
-  @@map("clients")
+  @@map("users")
 }
 
 model Order {
@@ -36,8 +36,8 @@ model Order {
   totalProducts Int
   totalPrice    Decimal
 
-  client    Client   @relation(fields: [clientId], references: [id])
-  clientId  Int
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

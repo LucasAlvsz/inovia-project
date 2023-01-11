@@ -1,6 +1,7 @@
+import { UserLogin } from "@/types/userTypes"
 import Joi from "joi"
 
-const bodySchema = Joi.object({
+const bodySchema = Joi.object<UserLogin>({
 	login: Joi.string().required(),
 	password: Joi.string().required(),
 })
