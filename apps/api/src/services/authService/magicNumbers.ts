@@ -1,3 +1,3 @@
-const TOKEN_EXPIRATION = "15m"
+const TOKEN_EXPIRATION = "10d"
 
 export { TOKEN_EXPIRATION }

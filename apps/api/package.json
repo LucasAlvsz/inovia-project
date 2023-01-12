@@ -1,7 +1,7 @@
 {
 	"name": "api",
 	"version": "1.0.0",
-	"author": "Lucas Alves <contato.lucasalv@gmai.com>",
+	"author": "Lucas Alves <contato.lucasalv@gmail.com>",
 	"license": "MIT",
 	"scripts": {
 		"build": "babel src --extensions '.js,.ts' --out-dir build --no-copy-ignored",
@@ -17,6 +17,7 @@
 		"express-async-errors": "^3.1.1",
 		"joi": "^17.7.0",
 		"jsonwebtoken": "^9.0.0",
+		"mongoose": "^6.8.3",
 		"multer": "^1.4.5-lts.1"
 	},
 	"devDependencies": {

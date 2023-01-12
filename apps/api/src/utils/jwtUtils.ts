@@ -1,3 +1,4 @@
+import { UnauthorizedError } from "@/errors"
 import jwt from "jsonwebtoken"
 
 const generateToken = (
@@ -9,7 +10,10 @@ const generateToken = (
 	})
 }
 const validateToken = (token: string) => {
-	return jwt.verify(token, process.env.JWT_SECRET)
+	return jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+		if (err) throw new UnauthorizedError(err.message)
+		return decoded
+	})
 }
 
 export default { generateToken, validateToken }

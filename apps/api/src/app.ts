@@ -3,6 +3,7 @@ import cors from "cors"
 import express from "express"
 
 import router from "@/routes"
+import productsRepository from "./respositories/productsRepository"
 
 const app = express()
 app.use(cors())

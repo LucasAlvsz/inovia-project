@@ -21,6 +21,7 @@ module.exports = {
 					"@config": "./src/config",
 					"@errors": "./src/errors",
 					"@routes": "./src/routes",
+					"@models": "./src/models",
 					"@schemas": "./src/schemas",
 					"@services": "./src/services",
 					"@factories": "./src/factories",

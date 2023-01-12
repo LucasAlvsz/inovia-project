@@ -27,9 +27,10 @@ const imageOptions = {
 		cb: FileFilterCallback
 	) => {
 		const allowedMimes = ["image/jpeg", "image/png"]
-		if (!allowedMimes.includes(file.mimetype))
+		if (!allowedMimes.includes(file.mimetype)) {
 			cb(new UnprocessableEntityError("Invalid file type"))
-
+			return
+		}
 		cb(null, true)
 	},
 	limits: {

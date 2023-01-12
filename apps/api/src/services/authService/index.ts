@@ -4,7 +4,7 @@ import { queryFactory } from "@/factories"
 import { UserData } from "@/types/userTypes"
 import { userRepository } from "@/respositories"
 import { TOKEN_EXPIRATION } from "./magicNumbers"
-import { cryptographyUtils, jwtUtils } from "@/utils"
+import { cryptographyUtils, fileUtils, jwtUtils } from "@/utils"
 import { ConflictError, NotFoundError, UnauthorizedError } from "@/errors"
 
 const validateUser = async (
@@ -41,7 +41,7 @@ const login = async (user: UserData) => {
 	if (!validatePassword) throw new UnauthorizedError("Invalid password")
 
 	const { id, name, profilePictureKey } = userAlreadyExists
-	const profilePicUrl = `${process.env.BASE_URL}/files/${profilePictureKey}`
+	const profilePicUrl = fileUtils.getPictureUrl(profilePictureKey)
 	return {
 		token: jwtUtils.generateToken({ id, name }, TOKEN_EXPIRATION),
 		userData: { name, profilePicUrl },

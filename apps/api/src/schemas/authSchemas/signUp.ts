@@ -1,7 +1,7 @@
 import Joibase from "joi"
 import JoiDate from "@joi/date"
 
-import { DATEFORMAT, PHONEPATTERN } from "./utils"
+import { DATE_FORMAT, PHONE_PATTERN } from "./utils"
 
 const Joi = Joibase.extend(JoiDate)
 
@@ -10,9 +10,9 @@ const bodySchema = Joi.object({
 	login: Joi.string().required(),
 	email: Joi.string().email().required(),
 	password: Joi.string().required(),
-	birthDate: Joi.date().format(DATEFORMAT).required(),
+	birthDate: Joi.date().format(DATE_FORMAT).required(),
 	address: Joi.string().required(),
-	phone: Joi.string().pattern(PHONEPATTERN).required(),
+	phone: Joi.string().pattern(PHONE_PATTERN).required(),
 })
 
 const signUpSchema = Joi.object({
