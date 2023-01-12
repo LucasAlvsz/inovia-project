@@ -11,4 +11,6 @@ app.use(express.json())
 app.use("/files", express.static(path.join(__dirname, "..", "tmp", "uploads")))
 app.use(router)
 
+// productsRepository.deleteAll()
+
 export default app

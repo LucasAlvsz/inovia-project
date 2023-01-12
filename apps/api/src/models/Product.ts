@@ -29,6 +29,8 @@ const ProductSchema = new Schema<Product>({
 	},
 	infos: [{ type: Schema.Types.Mixed }],
 
+	userId: { type: Number, required: true },
+
 	createdAt: {
 		type: Date,
 		default: Date.now,

@@ -34,10 +34,17 @@ class UnauthorizedError extends AppError {
 	}
 }
 
+class InternalServerError extends AppError {
+	constructor(message: string) {
+		super("Internal Server Error", 500, message)
+	}
+}
+
 export {
 	AppError,
 	UnprocessableEntityError,
 	NotFoundError,
 	ConflictError,
 	UnauthorizedError,
+	InternalServerError,
 }

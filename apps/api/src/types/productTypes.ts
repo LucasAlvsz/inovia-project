@@ -8,12 +8,13 @@ type Product = {
 	stock: number
 	pictureKey: string
 	infos: Array<Object>
+	userId: number
 	createdAt: Date
 }
 
 type CreateProduct = Omit<Product, "createdAt">
 
-type CreateProductBody = Omit<CreateProduct, "pictureKey">
+type CreateProductBody = Omit<CreateProduct, "userId" | "pictureKey">
 
 type FormatedProduct = {
 	id: Types.ObjectId

@@ -1,5 +1,4 @@
 import { Product } from "@/models"
-
 import { CreateProduct } from "@/types/productTypes"
 
 const create = async (productData: CreateProduct) => {
@@ -7,7 +6,26 @@ const create = async (productData: CreateProduct) => {
 }
 
 const getAll = async () => {
-	return await Product.find()
+	return Product.find()
+}
+
+const getById = async (id: String) => {
+	return Product.findById(id)
+}
+
+const updateById = async (
+	id: String,
+	productData:
+		| CreateProduct
+		| {
+				[key in keyof CreateProduct]?: CreateProduct[key]
+		  }
+) => {
+	return Product.findByIdAndUpdate(id, productData, { new: true })
+}
+
+const deleteById = async (id: String) => {
+	return Product.findByIdAndDelete(id)
 }
 
 const deleteAll = async () => {
@@ -17,5 +35,8 @@ const deleteAll = async () => {
 export default {
 	create,
 	getAll,
+	getById,
+	updateById,
+	deleteById,
 	deleteAll,
 }
