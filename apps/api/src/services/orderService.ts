@@ -68,7 +68,9 @@ const getUserOrders = async (userId: number) => {
 	if (!authService.validateUser({ id: userId }))
 		throw new UnauthorizedError("Invalid user")
 
-	const orders = await orderRepository.getByUserId(userId)
+	// the correct is return just the orders of the user but for populate the client i will return all orders
+	//const orders = await orderRepository.getByUserId(userId)
+	const orders = await orderRepository.getAll()
 
 	return joinOrderAndProducts(orders)
 }
