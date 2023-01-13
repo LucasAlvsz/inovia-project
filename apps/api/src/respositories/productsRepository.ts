@@ -24,6 +24,18 @@ const updateById = async (
 	return Product.findByIdAndUpdate(id, productData, { new: true })
 }
 
+const decrementStock = async (id: String, quantity: number) => {
+	await Product.findByIdAndUpdate(id, {
+		$inc: { stock: -quantity },
+	})
+}
+
+const incrementStock = async (id: String, quantity: number) => {
+	await Product.findByIdAndUpdate(id, {
+		$inc: { stock: quantity },
+	})
+}
+
 const deleteById = async (id: String) => {
 	return Product.findByIdAndDelete(id)
 }
@@ -37,6 +49,8 @@ export default {
 	getAll,
 	getById,
 	updateById,
+	decrementStock,
+	incrementStock,
 	deleteById,
 	deleteAll,
 }

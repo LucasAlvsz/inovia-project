@@ -44,8 +44,11 @@ model Order {
 }
 
 model Product {
-  id       Int    @id @default(autoincrement())
-  quantity Int
-  Order    Order? @relation(fields: [orderId], references: [id])
-  orderId  Int?
+  id        Int    @id @default(autoincrement())
+  productId String
+  quantity  Int
+  Order     Order? @relation(fields: [orderId], references: [id])
+  orderId   Int
+
+  @@map("products")
 }

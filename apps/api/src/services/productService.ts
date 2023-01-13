@@ -97,4 +97,5 @@ export default {
 	updateProduct,
 	updateProductPicture,
 	deleteProduct,
+	validadeProductById,
 }
