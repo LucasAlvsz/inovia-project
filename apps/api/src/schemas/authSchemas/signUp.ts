@@ -13,7 +13,7 @@ const bodySchema = Joi.object({
 	birthDate: Joi.date().format(DATE_FORMAT).required(),
 	address: Joi.string().required(),
 	phone: Joi.string().pattern(PHONE_PATTERN).required(),
-})
+}).options({ allowUnknown: false })
 
 const signUpSchema = Joi.object({
 	body: bodySchema,
