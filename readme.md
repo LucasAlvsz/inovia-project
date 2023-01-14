@@ -1,3 +1,8 @@
+<p align="center"></br>
+      <img src="./apps/client/src/assets/images/inovialogo.png" alt="inovia logo" width="300px"/>
+</p>
+
+</br>
 <h1 align="center">
   Inovia Project
   </br>
