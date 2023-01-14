@@ -4,7 +4,9 @@
 	"author": "Lucas Alves <contato.lucasalv@gmail.com>",
 	"license": "MIT",
 	"scripts": {
+		"prisma:deploy": "prisma migrate deploy",
 		"build": "babel src --extensions '.js,.ts' --out-dir build --no-copy-ignored",
+		"prestart": "npm run prisma:deploy",
 		"start": "node build/server.js",
 		"dev": "tsnd --transpile-only --respawn --ignore-watch node_modules --exit-child --cls --rs -r dotenv/config -r tsconfig-paths/register src/server.ts"
 	},
