@@ -29,7 +29,7 @@ const imageOptions = {
 		file: Express.Multer.File,
 		cb: FileFilterCallback
 	) => {
-		const allowedMimes = ["image/jpeg", "image/png"]
+		const allowedMimes = ["image/jpeg", "image/png", "image/jpg"]
 		if (!allowedMimes.includes(file.mimetype)) {
 			cb(new UnprocessableEntityError("Invalid file type"))
 			return
