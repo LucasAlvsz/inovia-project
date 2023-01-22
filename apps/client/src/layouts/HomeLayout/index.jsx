@@ -5,7 +5,6 @@ const HomeLayout = ({ children }) => {
 		<>
 			<Header />
 			{children}
-			{/* <Footer /> */}
 		</>
 	)
 }
